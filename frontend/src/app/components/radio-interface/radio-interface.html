@@ -1,0 +1,74 @@
+<!-- KNOCK! THE 1973 RADIO OF TRANSITIONS -->
+<!-- A dim room. A single amber lamp. The weight you carry, broadcast into the void. -->
+
+<div class="min-h-screen bg-radio-black flex items-center justify-center p-4 sm:p-8 relative overflow-hidden">
+
+  <!-- Ambient dust particles -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div class="dust-particle" style="left:10%; animation-duration:12s; animation-delay:0s;"></div>
+    <div class="dust-particle" style="left:25%; animation-duration:18s; animation-delay:3s;"></div>
+    <div class="dust-particle" style="left:45%; animation-duration:15s; animation-delay:7s;"></div>
+    <div class="dust-particle" style="left:65%; animation-duration:20s; animation-delay:2s;"></div>
+    <div class="dust-particle" style="left:80%; animation-duration:14s; animation-delay:5s;"></div>
+    <div class="dust-particle" style="left:92%; animation-duration:17s; animation-delay:9s;"></div>
+  </div>
+
+  <!-- The Radio Console Body -->
+  <div class="max-w-2xl w-full radio-body rounded-lg border-[10px] border-radio-wood p-6 sm:p-10 relative">
+
+    <!-- Scanline overlay -->
+    <div class="scanline-overlay absolute inset-0 rounded-lg z-20"></div>
+
+    <!-- Metallic name plate -->
+    <div class="nameplate absolute top-4 left-1/2 -translate-x-1/2 px-8 py-1.5 rounded shadow-md font-bold uppercase text-sm z-30 font-display">
+      KNOCKIN' RADIO 73
+    </div>
+
+    <!-- Subtle epigraph -->
+    <div class="text-center mt-14 mb-2 z-10 relative">
+      <p class="font-serif italic text-amber-700/40 text-xs tracking-widest uppercase">
+        "Take this badge off of me"
+      </p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="mt-4 relative z-10">
+
+      <!-- Input Component -->
+      <app-burden-input (transmit)="onTransmit($event)"></app-burden-input>
+
+      <!-- Display Component -->
+      <app-transmission-display
+        [isLoading]="isLoading"
+        [text]="textResult"
+        [error]="errorMessage"
+        [imageBase64]="imageBase64"
+        [detectedSentiment]="detectedSentiment">
+      </app-transmission-display>
+    </div>
+
+    <!-- Decorative knobs / grille -->
+    <div class="flex justify-between items-center mt-10 opacity-70 z-10 relative">
+      <!-- Left knob -->
+      <div class="radio-knob w-14 h-14 sm:w-16 sm:h-16 rounded-full shrink-0"></div>
+
+      <!-- Grille bars -->
+      <div class="flex-1 mx-6 sm:mx-8 flex flex-col justify-center gap-2.5">
+        <div class="grille-bar h-2 rounded-full w-full"></div>
+        <div class="grille-bar h-2 rounded-full w-full"></div>
+        <div class="grille-bar h-2 rounded-full w-full"></div>
+        <div class="grille-bar h-1.5 rounded-full w-3/4 self-center opacity-50"></div>
+      </div>
+
+      <!-- Right knob -->
+      <div class="radio-knob w-14 h-14 sm:w-16 sm:h-16 rounded-full shrink-0"></div>
+    </div>
+
+    <!-- Bottom inscription -->
+    <div class="text-center mt-6 z-10 relative">
+      <p class="font-mono text-[9px] text-amber-900/30 tracking-[0.5em] uppercase">
+        Model KR-73 &middot; Transitions Division &middot; Mfg. somewhere, 1973
+      </p>
+    </div>
+  </div>
+</div>
