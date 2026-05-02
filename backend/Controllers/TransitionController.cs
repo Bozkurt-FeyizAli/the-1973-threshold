@@ -31,7 +31,7 @@ public class TransitionController : ControllerBase
     {
         if (string.IsNullOrWhiteSpace(request.UserBurden))
         {
-            return BadRequest(new { status = "error", message = "Yük boş olamaz." });
+            return BadRequest(new { status = "error", message = "The burden cannot be empty." });
         }
 
         var stopwatch = Stopwatch.StartNew();
@@ -49,7 +49,7 @@ public class TransitionController : ControllerBase
 
             // 2. TTS ve Image Generation servislerini PARALEL çalıştır
             var audioTask = _audioService.GenerateAudioBase64Async(farewellText, detectedSentiment);
-            var imageTask = _imageService.GenerateImageBase64Async(request.UserBurden); // Using original burden or farewell text? The prompt says "LLM'in ürettiği metin temasında" but request.UserBurden might be shorter for image prompt, let's use farewellText for better context or userBurden. I'll use userBurden for simplicity but add "1970s polaroid" in the service.
+            var imageTask = _imageService.GenerateImageBase64Async(request.UserBurden, detectedSentiment);
 
             await Task.WhenAll(audioTask, imageTask);
 
@@ -80,7 +80,7 @@ public class TransitionController : ControllerBase
             return StatusCode(500, new TransitionResponse 
             { 
                 Status = "error", 
-                Message = "Radyo frekansı koptu. Lütfen tekrar deneyin." // As requested in PRD
+                Message = "The radio frequency faded. Please try again." // As requested in PRD
             });
         }
     }

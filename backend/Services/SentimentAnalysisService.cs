@@ -7,14 +7,8 @@ namespace backend.Services
 {
     public class SentimentAnalysisService
     {
-        private readonly HttpClient _httpClient;
-        private readonly IConfiguration _configuration;
-
-        // Dependency injection requires this constructor due to builder.Services.AddHttpClient<SentimentAnalysisService>()
-        public SentimentAnalysisService(HttpClient httpClient, IConfiguration configuration)
+        public SentimentAnalysisService()
         {
-            _httpClient = httpClient;
-            _configuration = configuration;
         }
 
         public Task<string> AnalyzeSentimentAsync(string userBurden)
