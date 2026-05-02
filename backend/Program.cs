@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
 // Register HttpClients and Services
 builder.Services.AddHttpClient<GeminiService>();
 builder.Services.AddHttpClient<ElevenLabsAudioService>();
-builder.Services.AddHttpClient<SentimentAnalysisService>();
+builder.Services.AddSingleton<SentimentAnalysisService>();
 builder.Services.AddHttpClient<ImageGenerationService>();
 
 // Swagger config needs to be before builder.Build()
