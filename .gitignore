@@ -120,3 +120,63 @@ baseline.json
 **/requirements/*
 backend/system\ requirements/*
 frontend/system\ requirements/*
+kimi/*
+frontend/.DS_STORE
+
+frontend/dist/
+frontend/bazel-out
+frontend/integration/bazel/bazel-*
+frontend/*.log
+frontend/node_modules/
+frontend/modules/ssr-benchmarks/node_modules/
+
+# Include when developing application packages.
+frontend/pubspec.lock
+frontend/.c9
+frontend/.idea/
+frontend/.devcontainer/*
+frontend/!.devcontainer/README.md
+frontend/!.devcontainer/recommended-devcontainer.json
+frontend/!.devcontainer/recommended-Dockerfile
+frontend/.settings/
+frontend/.vscode/settings.json
+frontend/*.swo
+frontend/*.swp
+frontend/modules/.settings
+frontend/modules/.vscode
+frontend/.vimrc
+frontend/.nvimrc
+
+# Don't check in secret files
+frontend/*secret.js
+
+# Ignore npm/yarn debug log
+frontend/npm-debug.log
+frontend/yarn-error.log
+
+# build-analytics
+frontend/.build-analytics
+
+# rollup-test output
+frontend/modules/rollup-test/dist/
+
+# User specific bazel settings
+frontend/.bazelrc.user
+
+# User specific ng-dev settings
+frontend/.ng-dev.user*
+
+frontend/.notes.md
+frontend/baseline.json
+
+# Ignore .history for the xyz.local-history VSCode extension
+frontend/.history
+
+# Husky
+frontend/.husky/_
+
+# Ignore cache created with the Angular CLI.
+frontend/.angular/
+
+# pnpm store
+frontend/.pnpm-store
