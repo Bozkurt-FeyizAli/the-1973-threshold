@@ -1,0 +1,109 @@
+/* Gelişmiş radyo düğmesi */
+.radio-knob-enhanced {
+  background: radial-gradient(circle at 30% 30%, #4a3520, #1a0f05 80%);
+  border: 3px solid #2a1a0a;
+  box-shadow: 
+    inset 0 2px 5px rgba(0,0,0,0.8),
+    0 2px 8px rgba(0,0,0,0.6),
+    0 0 15px rgba(217,119,6,0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.radio-knob-enhanced:hover {
+  transform: rotate(15deg);
+}
+.knob-dot {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 10px;
+  background: #d4a55b;
+  border-radius: 2px;
+  box-shadow: 0 0 6px #d4a55b;
+}
+
+/* Büyük toz parçacıkları */
+.dust-particle-large {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(217, 119, 6, 0.08);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: float-large linear infinite;
+  bottom: -20px;
+}
+@keyframes float-large {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(30px);
+    opacity: 0;
+  }
+}
+
+/* Vacuum tube flicker */
+.vacuum-glow {
+  animation: tube-flicker 3s ease-in-out infinite;
+}
+@keyframes tube-flicker {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.95; box-shadow: 0 0 14px #ff6a00, 0 0 35px #a04000; }
+  85% { opacity: 0.6; }
+}
+
+/* retro scroll bar — amber bar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(217, 119, 6, 0.25) transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(217, 119, 6, 0.25);
+  border-radius: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 119, 6, 0.45);
+}
+
+/* memory cards */
+.memory-polaroid {
+  background: #f4f0eb;
+  box-shadow: 1px 2px 8px rgba(0,0,0,0.55);
+  position: relative;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: memory-appear 0.5s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+.memory-card:nth-child(even) .memory-polaroid { transform: rotate(1.5deg); }
+.memory-card:nth-child(3n) .memory-polaroid   { transform: rotate(-0.8deg); }
+
+.memory-card:hover .memory-polaroid {
+  transform: rotate(0deg) scale(1.12) translateY(-4px);
+  box-shadow: 3px 6px 16px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+/* Memory card color tint */
+.memory-card.memory-positive .memory-polaroid { box-shadow: 1px 2px 8px rgba(0,0,0,0.5), 0 0 8px rgba(200,160,30,0.2); }
+.memory-card.memory-negative .memory-polaroid { box-shadow: 1px 2px 8px rgba(0,0,0,0.5), 0 0 8px rgba(30,60,180,0.15); filter: saturate(0.7); }
+
+@keyframes memory-appear {
+  from { opacity: 0; transform: rotate(-4deg) translateY(12px) scale(0.9); }
+  to   { opacity: 1; }
+}

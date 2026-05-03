@@ -1,0 +1,52 @@
+<!-- Voices from the Static — Prompt Kütüphanesi -->
+<div class="h-full flex flex-col">
+
+  <!-- title -->
+  <div class="shrink-0 mb-3">
+    <div class="font-mono text-[7px] text-amber-800/30 tracking-[0.4em] uppercase">Voices from the Static</div>
+    <div class="h-px w-full bg-amber-900/15 mt-1.5"></div>
+    <p class="mt-2 font-mono text-[6.5px] text-amber-900/20 tracking-[0.25em] uppercase leading-relaxed">
+      Click a signal to load it into the transmitter
+    </p>
+  </div>  
+
+  <!-- Prompt list - vertical scroll -->
+  <div class="flex-1 overflow-y-auto custom-scrollbar flex flex-col gap-1.5 pr-0.5">
+    @for (prompt of prompts; track prompt.text) {
+      <button
+        (click)="onPromptClick(prompt.text)"
+        class="prompt-card text-left w-full px-2.5 py-2 rounded-sm border transition-all duration-300 group">
+
+        <!-- Category + Sentiment dot -->
+        <div class="flex items-center gap-1.5 mb-1">
+          <div class="w-1 h-1 rounded-full shrink-0 transition-colors duration-300"
+               [style.background]="sentimentDot(prompt.sentiment)">
+          </div>
+          <span class="font-mono text-[6px] tracking-[0.3em] uppercase opacity-50 group-hover:opacity-80 transition-opacity">
+            {{ prompt.category }}
+          </span>
+        </div>
+
+        <!-- Burden text -->
+        <p class="font-serif italic text-[10px] leading-relaxed"
+           [class.text-blue-300]="prompt.sentiment === 'NEGATIVE'"
+           [class.text-amber-300]="prompt.sentiment === 'NEUTRAL'"
+           [class.text-emerald-300]="prompt.sentiment === 'POSITIVE'"
+           style="opacity: 0.55;"
+           [style.textShadow]="prompt.sentiment === 'NEGATIVE' ? '0 0 8px rgba(59,130,246,0.2)' :
+                               prompt.sentiment === 'POSITIVE' ? '0 0 8px rgba(52,211,153,0.2)' : 'none'">
+          "{{ prompt.text }}"
+        </p>
+      </button>
+    }
+  </div>
+
+  <!-- Bottom decorative text -->
+  <div class="shrink-0 mt-3 text-center">
+    <div class="h-px w-full bg-amber-900/15 mb-2"></div>
+    <span class="font-mono text-[6px] text-amber-900/15 tracking-[0.4em] uppercase">
+      Sample Frequencies · KR-73
+    </span>
+  </div>
+
+</div>

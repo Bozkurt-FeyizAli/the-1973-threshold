@@ -1,0 +1,22 @@
+.prompt-card {
+  background: rgba(5, 3, 0, 0.35);
+  border-color: rgba(120, 60, 10, 0.12);
+}
+
+.prompt-card:hover {
+  background: rgba(12, 8, 2, 0.6);
+  border-color: rgba(180, 90, 20, 0.25);
+  transform: translateX(2px);
+}
+
+/* Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(217, 119, 6, 0.15) transparent;
+}
+.custom-scrollbar::-webkit-scrollbar { width: 3px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(217, 119, 6, 0.15);
+  border-radius: 2px;
+}
