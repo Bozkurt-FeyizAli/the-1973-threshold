@@ -1,5 +1,7 @@
 # Knock! — The 1973 Threshold
 
+![1973 Threshold Animation](./intro.gif)
+
 > *"Knock, knock, knockin' on heaven's door…"*
 > A digital art installation where you surrender your burdens to a 1973 FM radio signal — and the signal answers back.
 
